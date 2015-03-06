@@ -190,7 +190,8 @@ Should always offer a "Skip Navigation" option as well as "Skip to Page Navigati
 *  Add a key for stylized graphics, maps, icons and/or charts
 
 ###Color contrast
-* background: #fff; color must be darker than #595959
+* background: #fff; color must be darker than #595959 to meet WCAG Level AAA
+* background: #fff; color must be darker than #767676 to meet WCAG Level AA
 
 
 ##Audio Accessibility
