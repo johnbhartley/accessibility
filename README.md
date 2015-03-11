@@ -23,6 +23,10 @@
 * [Accessibility Developer Tools - Chrome Extension](https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb?hl=en)
 * [Achecker - Accessibility Review w/ Paste HTML](http://achecker.ca/checker/index.php)
 
+##Browser Snags
+* [Tabbing not working in Firefox](http://www.blacktelephone.com/2008/07/enable-full-keyboard-tabbing-on-firefox-for-the-mac/)
+* [Tabbing not working in Safari](http://www.bignerdranch.com/blog/web-accessibility-skip-navigation-links/#super-awesome-bonus-tip)
+
 ##Other Resources
 * [The Paciello Group - Tools and Code Examples](http://www.paciellogroup.com/resources/)
 * [Making Accessible Links](http://www.sitepoint.com/15-rules-making-accessible-links/)
@@ -73,7 +77,11 @@
 | Microsoft Narrator | Windows | Included
 | Orca | Unix | Bundled With Gnome |
 | BRLTTY | Unix | Included
-|ChromeVox | All OS | Add-on for Chrome
+|ChromeVox | All OS | Add-on for Chrome|
+|[Window-Eyes](http://www.gwmicro.com/Window-Eyes/)|Windows|$895.00|
+|[NVDA](http://www.nvaccess.org/)|Windows|Free|
+|[Dolphin Supernova](http://www.yourdolphin.com/index.asp?home=452)|Mac and Windows| £835 
+
 
 Screen readers go from top to bottom, ignoring CSS-based layouts.
 
@@ -111,9 +119,7 @@ Should always offer a "Skip Navigation" option as well as "Skip to Page Navigati
 * [Tips for alt text] (http://webaim.org/articles/gonewild/#alttext)
 
 ####Image Maps
-* should be client-side, not server-side
-* If you want to use an image map, make it a client-side image map.
-* Include meaningful alt-text for every <area> of the <map>, alt-text that conveys the function of that hotspot.
+* Include meaningful alt-text for every `<area>` of the `<map>`, alt-text that conveys the function of that hotspot.
 * Use an appropriate text alternative on the image itself. If there is no information beyond the hotspots then alt="" is appropriate.
 * area element, target attribute values must contain any one of (case insensitive) _self, _top, _parent.
 
@@ -190,8 +196,7 @@ Should always offer a "Skip Navigation" option as well as "Skip to Page Navigati
 *  Add a key for stylized graphics, maps, icons and/or charts
 
 ###Color contrast
-* background: #fff; color must be darker than #595959 to meet WCAG Level AAA
-* background: #fff; color must be darker than #767676 to meet WCAG Level AA
+* background: #fff; color must be darker than #595959
 
 
 ##Audio Accessibility
@@ -291,7 +296,116 @@ Communications with persons with disabilities must be as effective as communicat
 ---
 
 ###Chapter 2
+> Keep in mind that you cannot reasonably be expected to know every detail about every kind of disability, every piece of AT, and the corresponding techniques for designing custom Web interfaces that will work with them! So don't worry...By reacting positively, you will be able to improve the quality of your design projects as well as improve as a developer.
+
+* Common misconception that a blind person cannot see at all. Not always the case.
+	* US - visual acuity of 20/200 or less with use of a correcting lens
+* UK tests this by the Snellen Test 
+	* below 3/60 (severely impaired)
+	* 3/60 to 6/60 (have a very contracted FOV)
+* definitions of disability may differ from country to country
+* 2010 - 285 million people with visual impairment, 39 million were blind, reduction from 2004 [source](http://www.who.int/features/factfiles/blindness/blindness_facts/en/)
+
+####Common blindness causes
+* Cataracts
+* Glaucoma
+* Age-related macular degeneration
+* Corneal opacity
+* Diabetic Retinopathy
+* Childhood Blindness
+* Trachoma
+* Onchocerciasis
+* [Vision and Hearing Impairment Simulator](http://www.inclusivedesigntoolkit.com/betterdesign2/simsoftware/simsoftware.html)
+
+> the idea that, "if it works with a screen reader, it is accessible" is only partially true. 
+
+###Physical, Cognitive and Sensory Disabilities
+* possible unwanted spasms or tremors, making it tough to use a mouse
+* ensuring your website is keyboard accessible is a great starting place for all disabilities
+* people who suffer from dyslexia may benefit from certain typefaces like Comic Sans or [Dyslexie](http://www.dyslexiefont.com/en/dyslexia-font/)
+
+###Assistive Technology
+> a term used to describe all of the tools, products and devices, from the simplest to the most complex, that can make a particular function easier or possible to perform - US National Multiple Sclerosis Society
+
+####JAWS
+* most common, costs around $1,000
+* many JAWS scripts available to extend
+* JAWS uses an off-screen model where HTML content from the page is temporarily buffered, which the screen reader interacts with
+* Many blind users will turn off the echo functionality for when they are typing
+* headings are insanely important for navigation in screen readers
+* can jump to navigation, headings, content, forms
+* forms should be well labeled
+
+####VoiceOver
+* learning curve is not as cheap 
+* comes standard on all new Macs
+* makes use of Web Spots, list of custom spots to locate via the Web Rotor
+* most of these features have an equivalent in JAWS
+
+####Mac Accessibility
+* The Mac Accessibility suite is pretty robust, so take some time to look through it all.
+* Can change the way you navigate the web (by DOM order or by Grouping Items)
+* Web Rotor gives you yet another way to look through the content of the page
+
+####Window-Eyes
+* extremely similar to JAWS
+* one of the first to support WAI-ARIA
+* cheaper than JAWS
+
+####NVDA
+* free and open source
+* can use synthetic speech __and__ braille 
+* supports over 20 languages
+
+###Lots of information on Switches, switch access and mouse emulation p. 57-65
+
+---
+---
+
+##Chapter 3 - JS and WAI-ARIA
+RIA - rich internet application
+
+__Section 508 guidelines state that when requiring a timed response, the user must be informed about the time that remains__
+
+* Progressive enhancement is at the root of accessible JavaScript
+* keeping things separate is best-case scenario for accessibility
+* JavaScript should be unobtrusive
+* should be keyboard accessible, should give user high level of control, should not force too much going on
+* don't __overengineer__
 * 
+
+
+####Random Factoids from 2014 Web AIM Survey [link](http://webaim.org/projects/screenreadersurvey5/)
+* 2014 Web AIM survey, 72% of screen reader users use on mobile
+	* 85% use multiple devices
+	* < 1% __only__ use mobile
+* OS Breakdown
+	* 82% Windows 
+	* 8.5% Apple
+	* 4.4% iOS
+	* 1.2% Linux
+	* 0.5% Android
+	* 1.6% Nokia - Whaaaaaat
+* Primary Screen Reader
+	* 50.5% JAWS
+	* 18.6% NVDA
+	* 10.3% VoiceOver
+	* 7.7% System Access
+	* 6.7% Window-Eyes
+	* 4.9% Other
+	* 1.3% ZoomText
+	* 0.4% ChromeVox
+* Javascript Enabled 97.6% of the time
+* [More great stats and knowledge from the survey](http://webaim.org/projects/screenreadersurvey5/media/mobileplatformusage.png)
+
+####Screen Reader Usage Over Time
+![](http://webaim.org/projects/screenreadersurvey5/media/screenreadersused.png)
+
+
+![](http://webaim.org/projects/screenreadersurvey5/media/mobileusage.png)
+
+![](http://webaim.org/projects/screenreadersurvey5/media/mobileplatformusage.png)
+
 
 
 ---
@@ -331,7 +445,14 @@ Communications with persons with disabilities must be as effective as communicat
 * say everything mode - reads all
 * keyboard navigation - tabs, arrows
 * form to form, heading to heading, allows user to scan easier
-* 
+
+###4a - People are People
+* Simply being conscious of the types of people that may have trouble with your site will help improve your overall accessibility
+###4b - Vision issues
+###4c - Hearing Issues
+###4d - Mobility and dexterity Issues
+###4e - Cognitive Issues
+###4f - Aging Into Disability
 
 
 
