@@ -22,6 +22,8 @@
 * [Daltonize - Color Blind Browser Extensions](http://www.daltonize.org/p/software.html)
 * [Accessibility Developer Tools - Chrome Extension](https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb?hl=en)
 * [Achecker - Accessibility Review w/ Paste HTML](http://achecker.ca/checker/index.php)
+* [AA text resizing specs](http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
+* [Color Oracle - Color Blindness Simulator](http://colororacle.org/)
 
 ##Browser Snags
 * [Tabbing not working in Firefox](http://www.blacktelephone.com/2008/07/enable-full-keyboard-tabbing-on-firefox-for-the-mac/)
@@ -38,6 +40,26 @@
 * [What Does Accessibility Mean? - Jonathan Snook](http://snook.ca/archives/accessibility_and_usability/what_does_accessibility_mean/)
 * [Color Contrast Check - AA, AAA](http://snook.ca/technical/colour_contrast/colour.html)
 * [PSU Image Map Tips](http://accessibility.psu.edu/imagemaps)
+* [`keyCode` Test](http://asquare.net/javascript/tests/KeyCode.html)
+* [`tabindex` Sequential Focus Navigation](http://www.w3.org/html/wg/drafts/html/master/editing.html#sequential-focus-navigation)
+* [Testing Designs For Color-Blindness - Zeldman](http://www.zeldman.com/2007/10/10/testing-designs-for-color-blindness/)
+* [Color Blind Accessibility - University of Missouri](https://uablogs.missouri.edu/interface/2011/05/is-your-site-color-blind-accessible/)
+* [Ancestry.com Accesible Navigation](http://blogs.ancestry.com/techroots/creating-a-completely-accessible-navigation-bar-in-html-css-and-js/)
+* [More on types of accessible navigations](http://www.dingoaccess.com/accessibility/accessing-nav-drop-downs/)
+* [Usability Guidelines for Accessible Web Design - Nielsen](http://media.nngroup.com/media/reports/free/Usability_Guidelines_for_Accessible_Web_Design.pdf)
+* [Simply Accessible - Derek Featherstone and Company](http://simplyaccessible.com/)
+* [Basic Screen Reader Commands](http://www.paciellogroup.com/blog/2015/01/basic-screen-reader-commands-for-accessibility-testing/)
+
+
+##Accessibility in the Design Phase
+* Photoshop &rarr; View &rarr; Proof Setup &rarr; Color Blind previews
+
+##Notable ADA Compliance and Web Lawsuits
+* [NAD vs. Netflix](http://www.cnet.com/news/netflix-and-deaf-rights-group-settle-suit-over-video-captions/)
+* [University of Florida and e-learning](http://chronicle.com/blogs/wiredcampus/150000-settlement-reached-in-blind-florida-state-students-e-learning-suit/35659)
+* [List of cases](http://www.karlgroves.com/2011/11/15/list-of-web-accessibility-related-litigation-and-settlements/)
+* [Target v. NFB](http://en.wikipedia.org/wiki/National_Federation_of_the_Blind_v._Target_Corp.)
+
 
 ##508 Standards Summarized
 1. Text equivalent. Alt, longdesc etc
@@ -341,6 +363,11 @@ Communications with persons with disabilities must be as effective as communicat
 * comes standard on all new Macs
 * makes use of Web Spots, list of custom spots to locate via the Web Rotor
 * most of these features have an equivalent in JAWS
+* Can show black box with what the screen reader would say without actual voice
+	* __Ctrl + Option + F8__ or __Ctrl + Option + fn + F8__ opens utility
+	* On Speech, Mute the voice
+	* On Sound, Mute the sound effects
+	* Enjoy screen reader text while listening to anything _but_ the screen reader
 
 ####Mac Accessibility
 * The Mac Accessibility suite is pretty robust, so take some time to look through it all.
@@ -372,10 +399,89 @@ __Section 508 guidelines state that when requiring a timed response, the user mu
 * JavaScript should be unobtrusive
 * should be keyboard accessible, should give user high level of control, should not force too much going on
 * don't __overengineer__
-* 
+* onFocus is the bedrock of accessible scripting
+* __Mouse-only GlobalEventHandlers.__ onmousedown, onmouseup, onclick, onmouseover, onmouseout
+* __Keyboard-friendly (respective to above) GlobalEventHandlers.__ onkeydown, onkeyup, onkeypress (very sensitive), onfocus, onblur
+* Don't have to only use on or the other, the handlers can work in tandem
+* _memorize the entire keycode chart_ kidding, but knowing the basics is helpful
+* [keyCode Test](http://asquare.net/javascript/tests/KeyCode.html)
+
+####Event Handler Accessibility Best Practices
+* avoid onDblclick - there's no keyboard equivalent for it
+* try to use `.focus()` instead of other options that give an element focus
+* for popup windows, you should also set the `href` so if scripting is off, users can still access the information
+* [discussion of `return false;` compared to `e.preventDefault();`](http://stackoverflow.com/questions/1357118/event-preventdefault-vs-return-false)
+* leverage TabIndex whenever possible 
+	* the `tabindex` attribute can take several values, and a common way to make sure it will receive focus is to add 0. -1 ensures it will not be in the tab order
+	* to focus on an element with `tabindex="-1"` you can always use JS, just be sure it's an enhancement and the functionality is not reliant on JS (in case it's disabled)
+	* __PROTIP__ postiive tabindex values can range from 1 to 32768
+	* [more on tabindex](http://www.w3.org/TR/wai-aria-practices/#kbd_focus)
+
+####JavaScript and WCAG 2.0
+#####Some common scripting failure points/inaccessibility
+* launching a new window without warning
+* linking in a non-standard way
+* not using a tab order that makes sense
+* opening a second window on page load
+* using dialogs or menus that are not adjacent to their trigger control
+
+#####Libraries that help accessibility
+* [Dojo Dijit](http://dojotoolkit.org/reference-guide/1.10/dijit/index.html#dijit-index) - increased support for vision-impaired and WAI-ARIA
+* [jQuery UI](http://plugins.jquery.com/?s=accessibility) - many accessible add-ons
+
+####WAI-ARIA Tips
+* WAI-ARIA "live regions" are used on pages with frequently updated content, like sports scores
+	* settings: off, polite, assertive
+	* keep use of assertive to a minimum
+	* `polite` will not interrupt the screen reader
+	* can be used for form validation or completion
+
+```
+<!-- by setting role="region" to parent, the live-region can be live -->
+<div role="region">
+	<div class="form-errors" aria-live="polite" aria-atomic="false">
+		<!-- 
+			generated content will show up here, but won't interrupt the user
+			aria-atomic=
+				- "true": Present the region as a whole when changes are detected.
+				- "false": Default. Present only the changed regions.
+		-->
+	</div>
+</div>
+```
+	
+* Keep page refreshes to a minimum to prevent breaking of focus
+* ARIA expands on describing content
+	* __aria-labelledby__ - points to another item that describes current element. Good for forms.
+	* __aria-label__ - similar to above, but text is positioned offscreen
+	* __aria-describedby__ - describes addition info about an item. can help provide a cue to AT
+	* __aria-required__ - true: The element requires user input, false: Default. The element may be left blank.
+	* [Full List via Microsoft](https://msdn.microsoft.com/en-us/library/windows/apps/hh767301.aspx)
+
+	
+###role="menubar" vs. role="navigation"
+needs more info
 
 
-####Random Factoids from 2014 Web AIM Survey [link](http://webaim.org/projects/screenreadersurvey5/)
+####Screen Readers and ARIA
+* `<body role="document">`
+* table on how JAWS looks at ARIA and ARIA roles
+
+---
+##Chapter 4 - API and DOM
+
+
+
+
+
+
+	 
+
+
+---
+---
+
+##Random Factoids from 2014 Web AIM Survey [link](http://webaim.org/projects/screenreadersurvey5/)
 * 2014 Web AIM survey, 72% of screen reader users use on mobile
 	* 85% use multiple devices
 	* < 1% __only__ use mobile
@@ -454,7 +560,16 @@ __Section 508 guidelines state that when requiring a timed response, the user mu
 ###4e - Cognitive Issues
 ###4f - Aging Into Disability
 
+---
+---
+---
 
+##Random Snippets
+```
+<label class="hidden" for="sara_searchInput" id="search_inputLabel">Search Keyword or item number</label>
+<input type="text" name="q" id="sara_searchInput" value="" placeholder="search keyword or item #" aria-labelledby="search_inputLabel">   
+```
+important above is the __aria-labelledby__ attribute            
 
 
 
