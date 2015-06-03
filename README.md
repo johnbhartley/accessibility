@@ -29,6 +29,9 @@
 * [Tabbing not working in Firefox](http://www.blacktelephone.com/2008/07/enable-full-keyboard-tabbing-on-firefox-for-the-mac/)
 * [Tabbing not working in Safari](http://www.bignerdranch.com/blog/web-accessibility-skip-navigation-links/#super-awesome-bonus-tip)
 
+##Screen Reader Specific
+* [NVDA Keyboard Commands](http://accessibility.psu.edu/screenreaders/nvda/)
+
 ##Other Resources
 * [The Paciello Group - Tools and Code Examples](http://www.paciellogroup.com/resources/)
 * [Making Accessible Links](http://www.sitepoint.com/15-rules-making-accessible-links/)
@@ -49,6 +52,12 @@
 * [Usability Guidelines for Accessible Web Design - Nielsen](http://media.nngroup.com/media/reports/free/Usability_Guidelines_for_Accessible_Web_Design.pdf)
 * [Simply Accessible - Derek Featherstone and Company](http://simplyaccessible.com/)
 * [Basic Screen Reader Commands](http://www.paciellogroup.com/blog/2015/01/basic-screen-reader-commands-for-accessibility-testing/)
+* [Vision Impairment Statistics](http://www.eyecareamerica.org/eyecare/news/upload/Eye-Health-Fact-Sheet.pdf)
+* [AJAX and Screen Readers - Juicy Studio](http://juicystudio.com/article/making-ajax-work-with-screen-readers.php)
+* [Jaws vs. NVDA - a look at advantages and disadvantages of each - VIDEO](https://www.youtube.com/watch?v=qQFI63b7e_g)
+
+## CSS-Specific
+* [how to remove CSS outlines in an accessible manner?](http://www.paciellogroup.com/blog/2012/04/how-to-remove-css-outlines-in-an-accessible-manner/)
 
 
 ##Accessibility in the Design Phase
@@ -59,6 +68,10 @@
 * [University of Florida and e-learning](http://chronicle.com/blogs/wiredcampus/150000-settlement-reached-in-blind-florida-state-students-e-learning-suit/35659)
 * [List of cases](http://www.karlgroves.com/2011/11/15/list-of-web-accessibility-related-litigation-and-settlements/)
 * [Target v. NFB](http://en.wikipedia.org/wiki/National_Federation_of_the_Blind_v._Target_Corp.)
+* [Scribd Must Comply with ADA - 3/2015](http://www.forbes.com/sites/ericgoldman/2015/03/26/scribd-must-comply-with-the-americans-with-disabilities-act/)
+* [Scribd Faces Setback](http://the-digital-reader.com/2015/03/20/scribd-faces-setback-in-lawsuit-over-accessibility/)
+* [Ninth Circuit Rules Website Must Have Nexus to a Physical Place of Business for ADA to Apply](http://www.adatitleiii.com/2015/04/ninth-circuit-rules-website-must-have-nexus-to-a-physical-place-of-business-for-ada-to-apply/)
+* [ADA Title III Lawsuits increase in 2014](http://www.adatitleiii.com/2015/04/ada-title-iii-lawsuits-surge-by-more-than-63-to-over-4400-in-2014/)
 
 
 ##508 Standards Summarized
@@ -101,7 +114,7 @@
 | BRLTTY | Unix | Included
 |ChromeVox | All OS | Add-on for Chrome|
 |[Window-Eyes](http://www.gwmicro.com/Window-Eyes/)|Windows|$895.00|
-|[NVDA](http://www.nvaccess.org/)|Windows|Free|
+|[NVDA - Non-Visual Desktop Access](http://www.nvaccess.org/)|Windows|Free released 2005|
 |[Dolphin Supernova](http://www.yourdolphin.com/index.asp?home=452)|Mac and Windows| £835 
 
 
@@ -470,6 +483,75 @@ needs more info
 ---
 ##Chapter 4 - API and DOM
 
+__Markup -> DOM -> layout engine -> OS accessibility API__
+
+####Rendering engines
+* Firefox - Gecko
+* IE - Trident 
+* Spartan Browser - Spartan rendering engine (fork of Trident)
+	* substantial benchmark improvements over Trident; particularly Javascript engine performance
+* Chrome &amp; Safari - Webkit
+* Opera - Presto
+
+* __The Off-Screen Model helps process the visual desktop and makes it accessible for screen readers and other assistive technologies__
+* Large range of Text to Speech (TTS) systems and engines
+* OSM was developed to help go from text-based to visual browsers
+* [Brief History of Screen Reader Technology Advances](ftp://ftp.software.ibm.com/sns/sr-os2/sr2doc/guitalk.txt)
+* Screen reader reads visual browser, grabs info, landmarks and controls, renders and then refers to OSM (screen scraping)
+* OSM is essentially localStorage for the screen reader, but is outdated with latest screen readers
+
+* if a site is poorly coded, the screen reader makes guesses. Screen readers are smart, but would make terrible carnival workers, because their guessing isn't so great. 
+* __heuristic evaluation__ is that weight-guessing ability. 
+	* screen reader has some set rules that it uses to determine what something is if it's forced to guess. 
+	* __heuristic__ = "set of rules"
+	
+> _this method of relying on heuristics for repair is brittle and prone to error, thus the importance of semantically correct code_
+	
+	
+* DOM and OSM are great at reading _static_ content
+	* dynamic content provides obstacles
+	* this is where WAI-ARIA is helpful
+		* virtual buffer of OSM/DOM updates automatically every few ms
+		* quick, reliable DOM changes
+		* possible to do, just need to be aware of them
+
+####Accessibility APIs
+* [MSAA](http://en.wikipedia.org/wiki/Microsoft_Active_Accessibility)
+	* used on Windows platform since mid 80s
+	* limited feature set
+	* four basic criteria of info that it sends
+		* role
+		* name
+		* value
+		* state
+	* __UIAutomation__ helps create a richer object model
+		* dropdown menus, combo boxes, check boxes, others
+		* control patterns
+	* __IAccessible 2__ - responsible for tree structure
+		* alternative aPI that extends MSAA
+		* used across Firefox, JAWS, NVDA, and more
+			* FireFox was a go to for latest a11y developments for a while
+		* builds on core of MSAA
+* Apple Accessibility API
+	* has their own _accessibility object_ 
+	* makes uniformity pretty easy, as is the case with most things Apple
+	* mostly relates to software though
+* Webkit a11y
+* Linux a11y APIs
+
+###HTML5 and a11y APIs
+> There is not a one to one relationship between all features and platform accessibility APIs. When HTML roles, states and properties do not directly map to an accessibility API, and there is a method in the API to expose a text string, expose the undefined role, states and properties via that method. IAccessible 2 and ATK use object attributes to expose semantics that are not directly supported in the APIs. 
+
+* [HTML Element to Accessibility API Role Mapping Matrix](http://rawgit.com/w3c/html-api-map/master/index.html#h-html-element-to-accessibility-api-role-mapping-matrix)
+
+
+##Chapter 5: HTML5: the New Semantics and New Approaches to Document Markup
+* well-formed code, strict validation, or even semantic correctness take second, third and fourth place behind a positive user experience for people with disabilities who might be using assistive technologies.
+* __don't think in absolutes__ there are many relative considerations when it comes to HTML5 and accessibility. 
+* 
+
+
+
 
 
 
@@ -563,6 +645,16 @@ needs more info
 ---
 ---
 ---
+##SSB Bart Group Accessibility Webinars
+####2015 Accessibility Trends
+- [Webinar Link](http://info.ssbbartgroup.com/2015AccessibilityTrends_Video.html?aliId=1652775)
+- 2010 DoJ published "Nondiscrimination on the Basis of Disability; Accessibility of Web Information and Services of State and Local Government Entities and Public Accommodations"
+- 2013 Nondiscrimination on the Basis of Disability; (Title III)
+- legal risk management will most likely drive accessibility for the foreseeable future instead of regulatory conformance (Title III regulations 10+ years out)
+- 
+
+---
+---
 
 ##Random Snippets
 ```
@@ -570,6 +662,97 @@ needs more info
 <input type="text" name="q" id="sara_searchInput" value="" placeholder="search keyword or item #" aria-labelledby="search_inputLabel">   
 ```
 important above is the __aria-labelledby__ attribute            
+
+##AccessU 2015 Summit Notes
+will probably come back and re-write, but here's the brain dump
+###Eric Eggert - a11y and ARIA
+- http://www.w3.org/WAI/tutorials/
+- way ah-rea, wi-cag
+- w3c recommendation since march 2014
+- use native HTML5 attribute when possible
+- don't change native semantics 
+- label nav with aria-label or if it's a visible label use labelled-by
+- main, only one per document
+- aside default role="complimentary"
+- role="search" on div inside the form, no dedicated HTML element
+- a lot of people really need to go through all of the links so think of the usability there
+
+###John Foliot - a11y and Video
+- POUR
+- Perceivable
+- Operable
+- Understandable
+- Robust
+- webvtt will be the standard for W3C
+- currently no PiP way to show sign language during content
+- AA compliant needs captions, video descriptions and transcripts
+- Sys requirements: time-scale modification
+
+###Henny Swan - a11y UX
+- standards and guidelines focus on code over design, output over outcome, compliance over experience
+- accessibility lipstick on a usability pig http://webaim.org/blog/accessibility-lipstick-on-a-usability-pig/
+- user research with diverse users, diverse personas, before during and after launch
+- multiple ways to find key pages, screens or information
+- autoplay could be alright if the decision has been made to play the content
+- ideally a minimum of two people in each disability category. 
+- cannot complete task - fix now
+- can complete but without ease - easy? fix now. more complicated? fix later
+- feature requests, evaluate value
+- by annotating you can expose accessibility issues during the design phase
+
+###Lainey Feingold - a11y Legal 
+- DoF - accessibility champions at the moment - a lot of enforcement work on web and mobile accessibility
+- a lot of important work around the policy
+- edX - very important learning platform - resolution that covered their learning systems
+- Madison County NY - civil action projects - looking at all services of public entity in terms of digital
+- DeKalb, Illinois (+6) - focusing on employment aspects of government websites - are online job applications accessible
+- Peapod online only case
+- Lucky Stores PoS case - filed statement of interest. even though web is not in ADA, the ADA covers the web. Long considered websites to be covered by Title III ADA despite the fact that there are no technical requirements in the ADA standards (2013)
+
+- DoJ requires...
+- web and mobile are covered along with LMS and CMS. Must meet WCAG 2.0 AA
+- websites and all online services including websites and online services that are 3rd parties must be accessible
+- independent consultant must be there to help implement fixes (must be approved)
+- all staff must be trained (anyone touching content)
+- must use an automated testing tool (what are some examples) not implemented yet
+- performance evaluations must include accessibility
+- homepage accessibility information page must be implemented, explains what you're doing accessibility-wise
+- time frames (given a start and end date)
+- the county is required to assess all existing content in conformance with WCAG 2.0 AA by performing automated accessibility tests using an automated tool identified by the US 
+- automated tools really only catch about 20% 25% of the issues. 
+- disabled users must go through and test and confirm that it works
+
+- regulations for accessibility
+- 508 
+- broad application of WCAG
+- 508 recognized as out of date
+- notice of proposed rule making (NPRM) - broad application of WCAG, covered electronic Content, Expanded interoperability requirements, real time text functionality
+- DOT - web regulations for airlines are not covered by the ADA. Airlines have separate a11y act. Now have their own regulations WCAG 2.0 AA, probably doesn't apply to mobile
+- ADA Web Regulations?
+- USDOJ - WCAG 2.0 AA is the standard
+- not really known at this point, every six months a regulatory agenda date gets set and moved
+- 25th anniversary of ADA July 26
+- Legal Advocacy
+- NAD and VUDU, NAD and Netflix, NAD and Apple, Harvard + MIT = closed captioning
+- Chicago, a student was told he couldn't take algebra class because he was blind (apparently fairly common)
+- Scribd appealing their case
+- HathiTrust digitizing books, rights of people to read. copyright laws should not stand in the way of rights of people to read
+- Case against Mariott for their back-end software
+- the right to shop
+- Raley's PoS at checkout. Flat screena nd blind person can't see keys, checkout devices have to have keys so person does not have to compromise security and tell pin # 
+- eBay - NAB
+- redBox - if service is offered to the public, it needs to be offered to everyone, even those with disabilities
+- wrinkles
+- most of what's going on int he legal space is advancing the civil rights and inclusion of disabled users and the web
+- Cullen v. Netflix and Earll v. eBay (if online only, you can't bring an ADA lawsuit, have to have brick and mortar store)
+- both of the above are working to become accessible
+- still up in the air for shopping if you have to have brick and mortar to be forced to be accessible online
+- most lawsuits start out of frustration of not being able to use something and being told "well why can't you"
+- best way to avoid risk is to be proactive
+
+
+
+
 
 
 
