@@ -44,17 +44,20 @@
 * [Color Contrast Check - AA, AAA](http://snook.ca/technical/colour_contrast/colour.html)
 * [PSU Image Map Tips](http://accessibility.psu.edu/imagemaps)
 * [`keyCode` Test](http://asquare.net/javascript/tests/KeyCode.html)
-* [`tabindex` Sequential Focus Navigation](http://www.w3.org/html/wg/drafts/html/master/editing.html#sequential-focus-navigation)
 * [Testing Designs For Color-Blindness - Zeldman](http://www.zeldman.com/2007/10/10/testing-designs-for-color-blindness/)
 * [Color Blind Accessibility - University of Missouri](https://uablogs.missouri.edu/interface/2011/05/is-your-site-color-blind-accessible/)
-* [Ancestry.com Accesible Navigation](http://blogs.ancestry.com/techroots/creating-a-completely-accessible-navigation-bar-in-html-css-and-js/)
-* [More on types of accessible navigations](http://www.dingoaccess.com/accessibility/accessing-nav-drop-downs/)
 * [Usability Guidelines for Accessible Web Design - Nielsen](http://media.nngroup.com/media/reports/free/Usability_Guidelines_for_Accessible_Web_Design.pdf)
 * [Simply Accessible - Derek Featherstone and Company](http://simplyaccessible.com/)
 * [Basic Screen Reader Commands](http://www.paciellogroup.com/blog/2015/01/basic-screen-reader-commands-for-accessibility-testing/)
 * [Vision Impairment Statistics](http://www.eyecareamerica.org/eyecare/news/upload/Eye-Health-Fact-Sheet.pdf)
 * [AJAX and Screen Readers - Juicy Studio](http://juicystudio.com/article/making-ajax-work-with-screen-readers.php)
 * [Jaws vs. NVDA - a look at advantages and disadvantages of each - VIDEO](https://www.youtube.com/watch?v=qQFI63b7e_g)
+
+## Navigation
+* [multi-level dropdown navigation](http://bitsofco.de/2015/accessible-multi-level-dropdown-navigation/)
+* [More on types of accessible navigations](http://www.dingoaccess.com/accessibility/accessing-nav-drop-downs/)
+* [Ancestry.com Accesible Navigation](http://blogs.ancestry.com/techroots/creating-a-completely-accessible-navigation-bar-in-html-css-and-js/)
+* [`tabindex` Sequential Focus Navigation](http://www.w3.org/html/wg/drafts/html/master/editing.html#sequential-focus-navigation)
 
 ## CSS-Specific
 * [how to remove CSS outlines in an accessible manner?](http://www.paciellogroup.com/blog/2012/04/how-to-remove-css-outlines-in-an-accessible-manner/)
@@ -72,6 +75,7 @@
 * [Scribd Faces Setback](http://the-digital-reader.com/2015/03/20/scribd-faces-setback-in-lawsuit-over-accessibility/)
 * [Ninth Circuit Rules Website Must Have Nexus to a Physical Place of Business for ADA to Apply](http://www.adatitleiii.com/2015/04/ninth-circuit-rules-website-must-have-nexus-to-a-physical-place-of-business-for-ada-to-apply/)
 * [ADA Title III Lawsuits increase in 2014](http://www.adatitleiii.com/2015/04/ada-title-iii-lawsuits-surge-by-more-than-63-to-over-4400-in-2014/)
+* [Robeson, NC - must make Web sites about accessible services accessible per WCAG2.0] (http://www.ada.gov/robeson_co_pca/robeson_sa.html)
 
 
 ##508 Standards Summarized
