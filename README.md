@@ -157,6 +157,8 @@ Should always offer a "Skip Navigation" option as well as "Skip to Page Navigati
 * Use the TITLE tag instead to create tooltips or supplemental information, since it is supported in all browsers. [See the example] (http://accessibility.psu.edu/imageshtml#title) 
 * [Tips for alt text] (http://webaim.org/articles/gonewild/#alttext)
 
+> Purely decorative images are those ... serving only an aesthetic purpose, providing no information, and having no functionality.
+
 ####Image Maps
 * Include meaningful alt-text for every `<area>` of the `<map>`, alt-text that conveys the function of that hotspot.
 * Use an appropriate text alternative on the image itself. If there is no information beyond the hotspots then alt="" is appropriate.
@@ -754,7 +756,36 @@ will probably come back and re-write, but here's the brain dump
 - most lawsuits start out of frustration of not being able to use something and being told "well why can't you"
 - best way to avoid risk is to be proactive
 
+---
 
+#How to Meet the WCAG 2.0
+---
+- US - 508 Disabilities Act compliance 
+> To make a great website you must _not_ assume that everyone is like you.
+
+- very possible that you will experience one disability or another at some point in your life. Consider how your sight/hearing/muscles have changed in the last 10 years alone. 
+- 1/5 people have some disability
+- If you're an able-bodied 20-something, making websites accessible is future-proofing for your future self
+
+> We just have to decide to include everyone
+
+- Sight disability - color blind, partial sight, total blindness
+- Hearing disability - deaf or hard of hearing
+- Motor disaibility - problems with motor skills, possible slow movement
+- Cognitive disability - learning difficulties or problems w/ concentration
+
+> Fifth Quadrant Analytics: "The disability market represents an annual disposable income of $1 trillion - and $544 billion in the US alone."
+
+- a majority of the time, a decision to make a site accessible makes the site easier to use even for those without disabilities
+- making a site easier to read with AT makes it more machine readable, helping boost SEO
+
+###Anti-discrimination laws
+- US - Section 508 of Rehabilitation Act 
+	- applies to goevernemtn websites as well as national laws
+- UK - have the Eqaulity Act 2010
+	- requires equal access to public or private services
+- Ontario, Canada has the Accessibility for Ontarians with Disabilities Act
+	- mandates WCAG 2.0 Level A compliance
 
 
 
