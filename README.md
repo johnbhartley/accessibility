@@ -52,6 +52,10 @@
 * [Vision Impairment Statistics](http://www.eyecareamerica.org/eyecare/news/upload/Eye-Health-Fact-Sheet.pdf)
 * [AJAX and Screen Readers - Juicy Studio](http://juicystudio.com/article/making-ajax-work-with-screen-readers.php)
 * [Jaws vs. NVDA - a look at advantages and disadvantages of each - VIDEO](https://www.youtube.com/watch?v=qQFI63b7e_g)
+* [Marcy Sutton tips on Auditing](http://old-staging.substantial.com/blog/2014/07/22/how-i-audit-a-website-for-accessibility/)
+* [Accessibility and the Shadow DOM](http://old-staging.substantial.com/blog/2014/02/05/accessibility-and-the-shadow-dom/)
+* [Demystifying Corporate Web a11y](http://www.3playmedia.com/2016/04/12/demystifying-corporate-web-accessibility-qa-with-john-foliot-of-w3c/)
+* [Tips on ARIA Tabs - Simply Accessible](http://simplyaccessible.com/article/danger-aria-tabs/)
 
 ## Navigation
 * [multi-level dropdown navigation](http://bitsofco.de/2015/accessible-multi-level-dropdown-navigation/)
@@ -157,7 +161,7 @@ Should always offer a "Skip Navigation" option as well as "Skip to Page Navigati
 * Use the TITLE tag instead to create tooltips or supplemental information, since it is supported in all browsers. [See the example] (http://accessibility.psu.edu/imageshtml#title) 
 * [Tips for alt text] (http://webaim.org/articles/gonewild/#alttext)
 
-> Purely decorative images are those ... serving only an aesthetic purpose, providing no information, and having no functionality.
+> Purely decorative images are those ... serving only an aesthetic purpose, providing no information, and having no functionality. [Credit](http://4syllables.com.au/articles/decorative-images/) 
 
 ####Image Maps
 * Include meaningful alt-text for every `<area>` of the `<map>`, alt-text that conveys the function of that hotspot.
