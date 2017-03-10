@@ -24,6 +24,7 @@
 * [Achecker - Accessibility Review w/ Paste HTML](http://achecker.ca/checker/index.php)
 * [AA text resizing specs](http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html)
 * [Color Oracle - Color Blindness Simulator](http://colororacle.org/)
+* [SiteImprove Chrome Extension](https://chrome.google.com/webstore/detail/siteimprove-accessibility/efcfolpjihicnikpmhnmphjhhpiclljc/related?hl&utm_content=buffer68514&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
 ##Browser Snags
 * [Tabbing not working in Firefox](http://www.blacktelephone.com/2008/07/enable-full-keyboard-tabbing-on-firefox-for-the-mac/)
@@ -56,6 +57,7 @@
 * [Accessibility and the Shadow DOM](http://old-staging.substantial.com/blog/2014/02/05/accessibility-and-the-shadow-dom/)
 * [Demystifying Corporate Web a11y](http://www.3playmedia.com/2016/04/12/demystifying-corporate-web-accessibility-qa-with-john-foliot-of-w3c/)
 * [Tips on ARIA Tabs - Simply Accessible](http://simplyaccessible.com/article/danger-aria-tabs/)
+* [CSUN Recap](http://www.stommepoes.nl/csun2017.html)
 
 ## Navigation
 * [multi-level dropdown navigation](http://bitsofco.de/2015/accessible-multi-level-dropdown-navigation/)
