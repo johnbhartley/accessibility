@@ -36,6 +36,7 @@
 * [NVDA Keyboard Commands](http://accessibility.psu.edu/screenreaders/nvda/)
 
 ##Other Resources
+* [Lainey Feingold - Legal Reading](http://www.lflegal.com/)
 * [The Paciello Group - Tools and Code Examples](http://www.paciellogroup.com/resources/)
 * [Making Accessible Links](http://www.sitepoint.com/15-rules-making-accessible-links/)
 * [Penn State WCAG2 Overview](http://accessibility.psu.edu/wcag2)
