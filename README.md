@@ -2,6 +2,8 @@
 
 > No one should be excluded from using your website simply because they have to access the Web in a different way. In other words, everyone can benefit in the end from making a site more accessible.
 
+[Official Statement on 508 Refresh, in effect as of 03/21/17](https://www.federalregister.gov/documents/2017/01/18/2017-00395/information-and-communication-technology-ict-standards-and-guidelines)
+
 ##Testing
 * [Cynthia Says](http://www.cynthiasays.com/) (508, A, AA, AAA)
 * [WAVE - Site](http://wave.webaim.org/)
@@ -58,6 +60,7 @@
 * [Demystifying Corporate Web a11y](http://www.3playmedia.com/2016/04/12/demystifying-corporate-web-accessibility-qa-with-john-foliot-of-w3c/)
 * [Tips on ARIA Tabs - Simply Accessible](http://simplyaccessible.com/article/danger-aria-tabs/)
 * [CSUN Recap](http://www.stommepoes.nl/csun2017.html)
+* [CSUN Mega-list of resources](http://www.dennisdeacon.com/web-design/accessibility/csun-2017-megalist-presentation-resources-digital-professionals/)
 
 ## Navigation
 * [multi-level dropdown navigation](http://bitsofco.de/2015/accessible-multi-level-dropdown-navigation/)
