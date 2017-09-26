@@ -2,6 +2,10 @@
 
 > No one should be excluded from using your website simply because they have to access the Web in a different way. In other words, everyone can benefit in the end from making a site more accessible.
 
+> Advice on certification from Karl Groves: You should treat anyone willing to say they will “Certify” you with significant suspicion. There’s no such thing and no “certification” is recognized by industry or by, in your case, lawyers.
+
+If you want to ensure sites are not targeted, make them accessible.
+
 [Official Statement on 508 Refresh, in effect as of 03/21/17](https://www.federalregister.gov/documents/2017/01/18/2017-00395/information-and-communication-technology-ict-standards-and-guidelines)
 
 ##Testing
@@ -62,6 +66,8 @@
 * [Tips on ARIA Tabs - Simply Accessible](http://simplyaccessible.com/article/danger-aria-tabs/)
 * [CSUN Recap](http://www.stommepoes.nl/csun2017.html)
 * [CSUN Mega-list of resources](http://www.dennisdeacon.com/web-design/accessibility/csun-2017-megalist-presentation-resources-digital-professionals/)
+* [Best Site Fonts for Dyslexia](https://creativemarket.com/blog/is-comic-sans-easier-for-dyslexic-users-to-read)
+* [Dyslexie Font for Readers with Dyslexia - Explanation](http://www.studiostudio.nl/?portfolio=item-14-4)
 
 ## Navigation
 * [multi-level dropdown navigation](http://bitsofco.de/2015/accessible-multi-level-dropdown-navigation/)
@@ -69,8 +75,12 @@
 * [Ancestry.com Accesible Navigation](http://blogs.ancestry.com/techroots/creating-a-completely-accessible-navigation-bar-in-html-css-and-js/)
 * [`tabindex` Sequential Focus Navigation](http://www.w3.org/html/wg/drafts/html/master/editing.html#sequential-focus-navigation)
 
+## Captioning
+* [Free tool for captioning videos](http://www.aegisub.org/)
+
 ## CSS-Specific
 * [how to remove CSS outlines in an accessible manner?](http://www.paciellogroup.com/blog/2012/04/how-to-remove-css-outlines-in-an-accessible-manner/)
+* [Writing CSS with Accessibility in Mind](https://medium.com/@matuzo/writing-css-with-accessibility-in-mind-8514a0007939)
 
 
 ##Accessibility in the Design Phase
